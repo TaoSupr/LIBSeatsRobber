@@ -45,7 +45,7 @@ class Schedule():
             print("17点之前每10分钟扫描一回，请勿关闭程序...")
             now = utils.now()
             end = utils.getToday() + ' 17:00:00'
-            if not utils.isLater(now, end):
+            if utils.isLater(now, end):
                 print("时间过了, 下次早点运行程序!!!!!!!!!!!!")
                 return
             self.scheduler.add_job(self.robber.getCookiesAndToken, 'interval', minutes=10, \
